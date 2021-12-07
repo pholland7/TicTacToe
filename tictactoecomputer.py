@@ -75,14 +75,15 @@ class Play:
         elif len(player.positions) == 2:
             for win in self.wins:
                 if player.positions[0] in win and player.positions[1] in win:
+                    first = player.positions[0]
+                    second = player.positions[1]
                     tempwin = []
                     for num in win:
-                        if num in computer.positions:
-                            break
                         tempwin.append(num)
-                    tempwin.remove(player.positions[0])
-                    tempwin.remove(player.positions[1])
-                    return str(tempwin[0])
+                    tempwin.remove(first)
+                    tempwin.remove(second)
+                    if tempwin[0] not in computer.positions: 
+                        return str(tempwin[0])
             if 1 not in player.positions and 1 not in computer.positions:
                 return "1"
             elif 3 not in player.positions and 3 not in computer.positions:

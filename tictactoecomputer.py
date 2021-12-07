@@ -49,9 +49,12 @@ class Play:
                       + self.spacertop + self.rowtwo + self.spacerbottom
                       + self.spacertop + self.rowthree + self.spacertop)
         self.wins = [[1,2,3], [1,5,9], [1,4,7], [2,5,8], [3,5,7], [3,6,9], [4,5,6], [7,8,9]]
-
+        self.start = (self.spacertop + " 1 | 2 | 3 " + self.spacerbottom
+                      + self.spacertop + " 4 | 5 | 6 " + self.spacerbottom
+                      + self.spacertop + " 7 | 8 | 9 " + self.spacertop)
+        
     def __str__(self):
-        return self.board
+        return self.start
 
     def playerChoice(self, player):
         space = input("{}, choose space 1-9 to place your piece: ".format(player.name))
@@ -362,6 +365,7 @@ else:
 print(computer)
 
 play = Play()
+print(play)
 while play.win(player, computer) == "Continue playing.":
     p1choice = play.playerChoice(player)
     resultP1 = play.placePiece(player, p1choice)
